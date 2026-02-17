@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TASK 14</title>
+     <script>
+        function add(){
+            a=Number(document.getElementById("int").value)
+               b=Number(document.getElementById("int1").value)
+               c=document.getElementById("result")
+               c.innerHTML=a+b
+        }
+     </script>
+    <style>
+         .container{
+            height: 300px;
+            display: flex;
+            border: 2px solid black;
+            flex-wrap:wrap;
+            padding: 10px;
+         }
+         img{
+           height: 300px;
+           width: 400px;
+         }
+         
+         .combine{
+           position: relative;
+           left: 200px;
+         }
+         #submit{
+            display: flex;
+            position: relative;
+            top: 20px;
+            left:120px;
+            flex-wrap: wrap;
+            height: 40px;
+            width: 100px;
+            border-radius: 10px;
+         }
+         .output{
+            display: flex;
+            position: relative;
+            top: 50px;
+            /* left: 40px; */
+            height: 80px;
+            width: 400px;
+        
+         }
+        input{
+            height: 40px;
+            width:170px;
+            box-shadow: 0 0 5px black;
+            margin-left: 20px;
+         }
+         .result{
+            position: relative;
+            top: 50px;
+            left: 0px;
+             height: 70px;
+            width:400px;
+            box-shadow: 0 0 5px black;
+            margin-left: 20px;
+         }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image">
+               <img src="WhatsApp Image 2025-12-06 at 15.03.39.jpeg" alt="">
+        </div>
+        <div class="combine">
+            <h1>INPUT HERE</h1>
+             <input type="text" id="int" placeholder="First input">
+             <input type="text" id="int1" placeholder="Second input">
+             <input type="submit" id="submit" onclick="add()">
+             <div class="result" id="result">output</div>
+        </div>
+    </div>
+</body>
+</html>

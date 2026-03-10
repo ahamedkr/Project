@@ -3,80 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TASK 14</title>
-     <script>
-        function add(){
-            a=Number(document.getElementById("int").value)
-               b=Number(document.getElementById("int1").value)
-               c=document.getElementById("result")
-               c.innerHTML=a+b
-        }
-     </script>
-    <style>
-         .container{
-            height: 300px;
-            display: flex;
-            border: 2px solid black;
-            flex-wrap:wrap;
-            padding: 10px;
-         }
-         img{
-           height: 300px;
-           width: 400px;
-         }
-         
-         .combine{
-           position: relative;
-           left: 200px;
-         }
-         #submit{
-            display: flex;
-            position: relative;
-            top: 20px;
-            left:120px;
-            flex-wrap: wrap;
-            height: 40px;
-            width: 100px;
-            border-radius: 10px;
-         }
-         .output{
-            display: flex;
-            position: relative;
-            top: 50px;
-            /* left: 40px; */
-            height: 80px;
-            width: 400px;
-        
-         }
-        input{
-            height: 40px;
-            width:170px;
-            box-shadow: 0 0 5px black;
-            margin-left: 20px;
-         }
-         .result{
-            position: relative;
-            top: 50px;
-            left: 0px;
-             height: 70px;
-            width:400px;
-            box-shadow: 0 0 5px black;
-            margin-left: 20px;
-         }
-    </style>
+    <title>TO DO LIST</title>
 </head>
+<style>
+    body{
+        text-align: center;
+        margin-top: 50px;
+        font-family: Arial, Helvetica, sans-serif;
+
+    }
+    .todo-container{
+        width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        box-shadow: 5px 5px 10px gray;
+        border-radius: 10px;
+        /* background-color: aqua; */
+        
+    }
+    .todo-box{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    
+    }
+
+    input[type="text"]{
+        width: 200px;
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid black;
+        border-radius: 5px;
+        margin-right: 10px;
+
+    }
+    button{
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        box-shadow: 5px 5px 5px gray;
+
+    }
+    .task-list{
+        text-align: left;
+
+    }
+    .task{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid gray;
+
+    }
+    .task button{
+        background-color:rgb(14, 13, 13);
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+
+    }
+</style>
 <body>
-    <div class="container">
-        <div class="image">
-               <img src="WhatsApp Image 2025-12-06 at 15.03.39.jpeg" alt="">
+    <div class="todo-container">
+        <h3>TO DO LIST</h3>
+        <div class="todo-box">
+            <input type="text" id="taskinput" placeholder="cooking">
+            <button onclick="addtask()">ADD</button>
         </div>
-        <div class="combine">
-            <h1>INPUT HERE</h1>
-             <input type="text" id="int" placeholder="First input">
-             <input type="text" id="int1" placeholder="Second input">
-             <input type="submit" id="submit" onclick="add()">
-             <div class="result" id="result">output</div>
-        </div>
+        <div class="task-list" id="tasklist"></div>
     </div>
 </body>
+<script>
+    function addtask(){
+        const input=document.getElementById("taskinput")
+        const tasktext=input.value.trim()
+        if(tasktext =="")return;
+        const taskdiv=document.createElement('div')
+        taskdiv.className='task'
+        const tasklable=document.createElement('span')
+        tasklable.textContent=tasktext;
+        const deletbtn=document.createElement('button');
+        deletbtn.innerHTML="🗑️"
+        deletbtn.onclick=()=>taskdiv.remove();
+        taskdiv.appendChild(tasklable);
+        taskdiv.appendChild(deletbtn);
+        document.getElementById('tasklist').appendChild(taskdiv);
+    }
+</script>
 </html>
